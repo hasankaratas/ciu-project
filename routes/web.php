@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function(){
     Route::resource('student', App\Http\Controllers\StudentController::class);
+    Route::resource('department', App\Http\Controllers\DepartmentController::class);
 });
 
 Auth::routes([

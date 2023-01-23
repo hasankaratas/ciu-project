@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
@@ -13,7 +14,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -23,7 +24,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('department.create');
     }
 
     /**
@@ -34,7 +35,14 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|min:2|max:255',
+        ]);
+
+        $department = Department::create([
+            'name' => $request->name,
+        ]);
+        return view('department.create',compact('department'));
     }
 
     /**

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use App\Models\Department;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Request;
 
 class StudentController extends Controller
 {
@@ -38,23 +39,28 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $departments = Department::all();
-        $validate = Validator::make($request->all(), [
-            'name' => 'required|min:2',
-            'surname' => 'required|min:2',
-            'student_no' => 'required',
-            'email' => 'required',
+        $validate = $request->validate([
             'department' => 'required',
-            'phone_number' => 'required',
-            'passport_number' => 'required',
-            'country' => 'required',
-        ], [
-            'name.required' => 'Name is must.',
-            'name.min' => 'Name must have 5 char.',
+            'name' => 'required|min:2|max:255',
+            'surname' => 'required|min:2|max:255',
+            'student_no' => 'required|min:8|max:8',
+            'email' => 'required|email|min:2|max:255',
+            'phone_number' => 'required|min:10|max:11',
+            'passport_no' => 'required|min:10|max:255',
+            'country' => 'required|min:2|max:255',
         ]);
-        if ($validate->fails()) {
-            return back()->withErrors($validate->errors())->withInput();
-        }
-        return view('student.create', compact('departments'));
+
+        $student = Student::create([
+            'department_id' => $request->department,
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'student_no' => $request->student_no,
+            'email' =>$request->email,
+            'phone_number' => $request->phone_number,
+            'passport_no' => $request->passport_no,
+            'country' => $request->country,
+        ]);
+        return view('student.create', compact('departments','student'));
     }
 
     /**
