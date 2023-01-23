@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
-class Department extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +25,8 @@ class Department extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::all();
+        return view('student.create', compact('departments'));
     }
 
     /**
@@ -34,7 +37,24 @@ class Department extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $departments = Department::all();
+        $validate = Validator::make($request->all(), [
+            'name' => 'required|min:2',
+            'surname' => 'required|min:2',
+            'student_no' => 'required',
+            'email' => 'required',
+            'department' => 'required',
+            'phone_number' => 'required',
+            'passport_number' => 'required',
+            'country' => 'required',
+        ], [
+            'name.required' => 'Name is must.',
+            'name.min' => 'Name must have 5 char.',
+        ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate->errors())->withInput();
+        }
+        return view('student.create', compact('departments'));
     }
 
     /**

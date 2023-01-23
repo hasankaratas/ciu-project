@@ -17,9 +17,11 @@ Route::get('/', function () {
     return view('home');
 })->middleware("auth");
 
-Route::get('/', function () {
-    return view('auth.login');
-})->middleware("guest");
+
+
+Route::middleware(['auth'])->group(function(){
+    Route::resource('student', App\Http\Controllers\StudentController::class);
+});
 
 Auth::routes([
     "register"=>false,
@@ -27,4 +29,4 @@ Auth::routes([
     "verify"=>false
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
