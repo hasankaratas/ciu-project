@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Salamis Shift System - Login</title>
+    <title>CIU - Login</title>
 
     <meta name="description" content="" />
 
@@ -131,15 +131,12 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Salamis Shift System</span>
+                  <span class="app-brand-text demo text-body fw-bolder">CIU</span>
                 </a>
               </div>
               <!-- /Logo -->
               <h4 class="mb-2">Hoşgeldiniz👋</h4>
               <p class="mb-4">Lütfen hesabınıza giriş yapınız</p>
-
-
-
                 <form method="POST" action="{{ route('login') }}">
                 @csrf
 
@@ -179,13 +176,6 @@
 
                 </div>
               </form>
-
-              <p class="text-center">
-                <span>Platformumuzda yeni misiniz?</span>
-                <a href="">
-                  <span>Hesap oluştur</span>
-                </a>
-              </p>
             </div>
           </div>
           <!-- /Register -->

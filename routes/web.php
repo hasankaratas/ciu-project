@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,21 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->middleware("auth");
-
-
-
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('home');
+    });
     Route::resource('student', App\Http\Controllers\StudentController::class);
     Route::resource('department', App\Http\Controllers\DepartmentController::class);
+    Route::post ('student/update/{id}', [StudentController::class, 'update'])->name('updateStudent');
+    Route::delete ('student/delete/{id}', [StudentController::class, 'destroy'])->name('deleteStudent');
+    Route::post ('department/update/{id}', [DepartmentController::class, 'update'])->name('updateDepartment');
+    Route::delete ('department/delete/{id}', [DepartmentController::class, 'destroy'])->name('deleteDepartment');
 });
 
 Auth::routes([
-    "register"=>false,
-    "reset"=>false,
-    "verify"=>false
+    "register" => false,
+    "reset" => false,
+    "verify" => false
 ]);
-
-

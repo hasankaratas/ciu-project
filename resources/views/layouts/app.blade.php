@@ -13,8 +13,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
 
@@ -41,6 +39,10 @@
     <!-- Helpers -->
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
+    {{-- Jquery --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--Swal Alert-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @yield('css')
 </head>
@@ -132,7 +134,7 @@
                         <span class="menu-header-text">Bölüm</span>
                     </li>
                     <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link">
+                        <a href="{{ route('department.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-building"></i>
                             <div data-i18n="Account Settings">Bölümler</div>
                         </a>

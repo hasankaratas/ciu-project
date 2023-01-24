@@ -14,7 +14,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        
+        $departments = Department::all();
+        return view('department.index',compact('departments'));
     }
 
     /**
@@ -64,7 +65,8 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $department = Department::find($id);
+        return view("department.edit", compact("department"));
     }
 
     /**
@@ -76,7 +78,13 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|min:2|max:255',
+        ]);
+
+        $department = Department::find($id);
+        $department->fill($request->all())->save();
+        return back();
     }
 
     /**
@@ -87,6 +95,12 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $department = Department::find($id);
+        if (isset($department)) {
+            $department->delete();
+            return "Silindi!";
+        }else{
+            return "Bu kayıt bulunamadı!";
+        }
     }
 }
