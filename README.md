@@ -10,3 +10,7 @@
 <p>7-php artisan migrate</p>
 <p>8-php artisan db:seed --class=UserSeeder</p>
 
+## Öğrenci Kayıt Uygulaması Login Bilgileri
+
+<p>Email: admin@example.com</p>
+<p>Şifre: 123456</p>
