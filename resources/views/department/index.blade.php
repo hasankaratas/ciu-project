@@ -10,7 +10,9 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Bölüm Adı</th>
+                                <th>BÖLÜM ADI</th>
+                                <th>GÜNCELLEME</th>
+                                <th>SİLME</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -21,9 +23,9 @@
                                     </td>
                                     <td>{{ $department->name }}</td>
                                     <td><a type="button" class="btn btn-sm btn-warning"
-                                            href="{{ route('department.edit', $department->id) }}">Edit</a></td>
+                                            href="{{ route('department.edit', $department->id) }}">Güncelle</a></td>
                                     <td><a type="button" class="btn btn-sm btn-danger text-white" id="{{ $department->id }}"
-                                            onclick="deleteDepartment(this.id)">Delete</a></td>
+                                            onclick="deleteDepartment(this.id)">Sil</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -31,8 +31,13 @@
                                             <td>{{ $student->student_no }}</td>
                                             <td>{{ $student->name }}</td>
                                             <td>{{ $student->surname }}</td>
-                                            <td>{{ $student->department_id }}</td>
-                                            <td>{{ $student->country }}</td>
+                                            <td>@if(!empty($student->department->name))
+                                                {{ $student->department->name  }}
+                                            @else
+                                                Bölüm Silindi
+                                            @endif
+                                        </td>
+                                                <td>{{ $student->country }}</td>
                                             <td>{{ $student->phone_number }}</td>
                                             <td>{{ $student->passport_no }}</td>
                                             <td>{{ $student->email }}</td>

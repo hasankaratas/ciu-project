@@ -13,6 +13,13 @@
                     </ul>
                 </div>
             @endif
+            @if (\Session::has('success'))
+                <div class="alert alert-success mb-3">
+                    <ul>
+                        <li>Bölüm bilgileri başarılı şekilde güncellenmiştir.</li>
+                    </ul>
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Bölüm<label for=""></label> Güncelleme</h5>

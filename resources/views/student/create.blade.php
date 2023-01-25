@@ -29,8 +29,9 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">ÖĞRENCİ NUMARASI</label>
-                            <input type="text" class="form-control" id="basic-default-fullname" name="student_no"
-                                placeholder="20000000">
+                            <input type="number" class="form-control" id="basic-default-fullname" name="student_no"
+                                placeholder="20000000" value="{{ old('student_no') }}">
+                            <div class="form-text">Zorunlu Alandır. 8 rakam girilmelidir.</div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlSelect1" class="form-label">BÖLÜM</label>
@@ -45,36 +46,42 @@
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">İSİM</label>
                             <input type="text" class="form-control" id="basic-default-fullname" name="name"
-                                placeholder="John">
+                                placeholder="John" value="{{ old('name') }}">
+                            <div class="form-text">Zorunlu Alandır. Sadece karakter girilmelidir.</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-company">SOYİSİM</label>
                             <input type="text" class="form-control" id="basic-default-company" name="surname"
-                                placeholder="Doe">
+                                placeholder="Doe" value="{{ old('surname') }}">
+                            <div class="form-text">Zorunlu Alandır. Sadece karakter girilmelidir.</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-email">EMAİL</label>
                             <div class="input-group input-group-merge">
                                 <input type="text" id="basic-default-email" class="form-control"
                                     placeholder="john.doe@gmail.com" aria-label="john.doe"
-                                    aria-describedby="basic-default-email2" name="email">
+                                    aria-describedby="basic-default-email2" name="email" value="{{ old('email') }}">
                             </div>
-                            <div class="form-text">You can use letters, numbers &amp; periods</div>
+                            <div class="form-text">Zorunlu Alandır. Email formatında bir değer girilmelidir.</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-phone">TELEFON NO</label>
-                            <input type="text" id="basic-default-phone" name="phone_number"
-                                class="form-control phone-mask" placeholder="542 888 8888">
+                            <input type="number" id="basic-default-phone" name="phone_number"
+                                class="form-control phone-mask" placeholder="542 888 8888"
+                                value="{{ old('phone_number') }}">
+                            <div class="form-text">Zorunlu Alandır. 10 rakam girilmelidir.</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">ÜLKE</label>
                             <input type="text" class="form-control" id="basic-default-fullname" name="country"
-                                placeholder="Turkey">
+                                placeholder="Turkey" value="{{ old('country') }}">
+                            <div class="form-text">Zorunlu Alandır. Sadece karakter girilmelidir.</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">PASAPORT NUMARASI</label>
-                            <input type="text" class="form-control" id="basic-default-fullname" name="passport_no"
-                                placeholder="2000000000">
+                            <input type="number" class="form-control" id="basic-default-fullname" name="passport_no"
+                                placeholder="2000000000" value="{{ old('passport_no') }}">
+                            <div class="form-text">Zorunlu Alandır. 10 rakam girilmelidir.</div>
                         </div>
                         <button type="submit" class="btn btn-primary">Kaydet</button>
                     </form>

@@ -30,7 +30,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">BÖLÜM İSMİ</label>
                             <input type="text" class="form-control" id="basic-default-fullname" name="name"
-                                placeholder="Bilgisayar Mühendisliği">
+                                placeholder="Bilgisayar Mühendisliği" value="{{old('name')}}">
                         </div>
                         <button type="submit" class="btn btn-primary">Kaydet</button>
                     </form>

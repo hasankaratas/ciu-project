@@ -10,14 +10,16 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Öğrenci Numarası</th>
-                                <th>İsim</th>
-                                <th>Soyisim</th>
-                                <th>Bölüm</th>
-                                <th>Ülke</th>
-                                <th>Telefon Numarası</th>
-                                <th>Pasaport Numarası</th>
-                                <th>Email</th>
+                                <th>ÖĞRENCİ NUMARASI</th>
+                                <th>İSİM</th>
+                                <th>SOYİSİM</th>
+                                <th>BÖLÜM</th>
+                                <th>ÜLKE</th>
+                                <th>TELEFON NUMARASI</th>
+                                <th>PASAPORT NUMARASI</th>
+                                <th>EMAİL</th>
+                                <th>GÜNCELLEME</th>
+                                <th>SİLME</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -28,16 +30,20 @@
                                     </td>
                                     <td>{{ $student->student_no }}</td>
                                     <td>{{ $student->name }}</td>
-                                    <td>{{ $student->surname }}</td>
-                                    <td>{{ $student->department_id }}</td>
+                                    <td>{{ $student->surname }}</td> 
+                                    <td>@if(!empty($student->department->name))
+                                        {{ $student->department->name  }}
+                                    @else
+                                        Bölüm Silindi
+                                    @endif
                                     <td>{{ $student->country }}</td>
                                     <td>{{ $student->phone_number }}</td>
                                     <td>{{ $student->passport_no }}</td>
                                     <td>{{ $student->email }}</td>
                                     <td><a type="button" class="btn btn-sm btn-warning"
-                                            href="{{ route('student.edit', $student->id) }}">Edit</a></td>
+                                            href="{{ route('student.edit', $student->id) }}">Güncelle</a></td>
                                     <td><a type="button" class="btn btn-sm btn-danger text-white" id="{{ $student->id }}"
-                                            onclick="deleteStudent(this.id)">Delete</a></td>
+                                            onclick="deleteStudent(this.id)">Sil</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
