@@ -37,7 +37,13 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'name' => 'required|min:2|max:255|alpha',
+            'name' => 'required|min:2|max:255|regex:/^[\pL\s\-]+$/u',
+        ],
+        [
+            'name.required'  => 'Bölüm ismi alanı zorunludur!',
+            'name.min'  => 'Bölüm ismi alanına en az 2 karakter girilmelidir!',
+            'name.max'  => 'Bölüm ismi alanına en fazla 255 karakter girilmelidir!',
+            'name.regex'  => 'Bölüm ismi sadece karakter içerebilir!',
         ]);
 
         $department = Department::create([
@@ -79,7 +85,13 @@ class DepartmentController extends Controller
     public function update(Request $request, $id)
     {
         $validate = $request->validate([
-            'name' => 'required|min:2|max:255|alpha',
+            'name' => 'required|min:2|max:255|regex:/^[\pL\s\-]+$/u',
+        ],
+        [
+            'name.required'  => 'Bölüm ismi alanı zorunludur!',
+            'name.min'  => 'Bölüm ismi alanına en az 2 karakter girilmelidir!',
+            'name.max'  => 'Bölüm ismi alanına en fazla 255 karakter girilmelidir!',
+            'name.regex'  => 'Bölüm ismi sadece karakter içerebilir!',
         ]);
 
         $department = Department::find($id);

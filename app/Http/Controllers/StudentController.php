@@ -43,22 +43,22 @@ class StudentController extends Controller
         $departments = Department::all();
         $validate = $request->validate([
             'department' => 'required',
-            'name' => 'required|min:2|max:255|alpha',
-            'surname' => 'required|min:2|max:255|alpha',
+            'name' => 'required|min:2|max:255|regex:/^[\pL\s\-]+$/u',
+            'surname' => 'required|min:2|max:255|regex:/^[\pL\s\-]+$/u',
             'student_no' => 'required|min:8|max:8',
             'email' => 'required|email|min:2|max:255',
             'phone_number' => 'required|min:10|max:11',
             'passport_no' => 'required|min:10|max:11',
-            'country' => 'required|min:2|max:255|alpha',
+            'country' => 'required|min:2|max:255|regex:/^[\pL\s\-]+$/u',
         ],
         [
             'department.required'  => 'Bölüm alanı zorunludur!',
             'name.required'  => 'İsim alanı zorunludur!',
-            'name.alpha'  => 'İsim alanına sadece karakter girilmelidir!',
+            'name.regex'  => 'İsim alanına sadece karakter girilmelidir!',
             'name.min'  => 'İsim alanına en az 2 karakter girilmelidir!',
             'name.max'  => 'İsim alanı en fazla 255 karakter girilebilir!',
             'surname.required'  => 'Soyisim alanı zorunludur!',
-            'surname.alpha'  => 'Soyisim alanına sadece karakter girilmelidir!',
+            'surname.regex'  => 'Soyisim alanına sadece karakter girilmelidir!',
             'surname.min'  => 'Soyisim alanına en az 2 karakter girilmelidir!',
             'surname.max'  => 'Soyisim alanı en fazla 255 karakter girilebilir!',
             'student_no.required'  => 'Öğrenci numarası alanı zorunludur!',
@@ -77,7 +77,7 @@ class StudentController extends Controller
             'country.required'  => 'Ülke alanı zorunludur!',
             'country.min'  => 'Ülke alanına en az 2 karakter girilmelidir!',
             'country.max'  => 'Ülke alanı en fazla 255 karakter girilebilir!',
-            'country.alpha'  => 'Ülke alanına sadece karakter girilmelidir!',
+            'country.regex'  => 'Ülke alanına sadece karakter girilmelidir!',
         ]);
 
         $student = Student::create([
@@ -128,22 +128,22 @@ class StudentController extends Controller
         $departments = Department::all();
         $validate = $request->validate([
             'department_id' => 'required',
-            'name' => 'required|min:2|max:255|alpha',
-            'surname' => 'required|min:2|max:255|alpha',
+            'name' => 'required|min:2|max:255|regex:/^[\pL\s\-]+$/u',
+            'surname' => 'required|min:2|max:255|regex:/^[\pL\s\-]+$/u',
             'student_no' => 'required|min:8|max:8',
             'email' => 'required|email|min:2|max:255',
             'phone_number' => 'required|min:10|max:11',
             'passport_no' => 'required|min:10|max:255',
-            'country' => 'required|min:2|max:255|alpha',
+            'country' => 'required|min:2|max:255|regex:/^[\pL\s\-]+$/u',
         ],
         [
             'department.required'  => 'Bölüm alanı zorunludur!',
             'name.required'  => 'İsim alanı zorunludur!',
-            'name.alpha'  => 'İsim alanına sadece karakter girilmelidir!',
+            'name.regex'  => 'İsim alanına sadece karakter girilmelidir!',
             'name.min'  => 'İsim alanına en az 2 karakter girilmelidir!',
             'name.max'  => 'İsim alanı en fazla 255 karakter girilebilir!',
             'surname.required'  => 'Soyisim alanı zorunludur!',
-            'surname.alpha'  => 'Soyisim alanına sadece karakter girilmelidir!',
+            'surname.regex'  => 'Soyisim alanına sadece karakter girilmelidir!',
             'surname.min'  => 'Soyisim alanına en az 2 karakter girilmelidir!',
             'surname.max'  => 'Soyisim alanı en fazla 255 karakter girilebilir!',
             'student_no.required'  => 'Öğrenci numarası alanı zorunludur!',
@@ -162,7 +162,7 @@ class StudentController extends Controller
             'country.required'  => 'Ülke alanı zorunludur!',
             'country.min'  => 'Ülke alanına en az 2 karakter girilmelidir!',
             'country.max'  => 'Ülke alanı en fazla 255 karakter girilebilir!',
-            'country.alpha'  => 'Ülke alanına sadece karakter girilmelidir!',
+            'country.regex'  => 'Ülke alanına sadece karakter girilmelidir!',
         ]);
 
         $student = Student::find($id);
