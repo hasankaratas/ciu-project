@@ -12,14 +12,14 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Öğrenci Numarası</th>
-                                        <th>İsim</th>
-                                        <th>Soyisim</th>
-                                        <th>Bölüm</th>
-                                        <th>Ülke</th>
-                                        <th>Telefon Numarası</th>
-                                        <th>Pasaport Numarası</th>
-                                        <th>Email</th>
+                                        <th>ÖĞRENCİ NUMARASI</th>
+                                        <th>İSİM</th>
+                                        <th>SOYİSİM</th>
+                                        <th>BÖLÜM</th>
+                                        <th>ÜLKE</th>
+                                        <th>TELEFON NUMARASI</th>
+                                        <th>PASAPORT NUMARASI</th>
+                                        <th>EMAİL</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
@@ -56,7 +56,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Bölüm Adı</th>
+                                        <th>BÖLÜM ADI</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
